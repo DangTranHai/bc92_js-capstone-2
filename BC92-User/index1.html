@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PhoneShop - User</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- CSS của bạn -->
+  <link rel="stylesheet" href="../css/main.css" />
+</head>
+
+<body class="bg-[#f5f9fe] text-[#1d365e] font-sans">
+
+<!-- HEADER -->
+<header class="sticky top-0 z-50 bg-white border-b">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <div class="text-2xl font-bold text-blue-600">PhoneShop</div>
+
+    
+     <a href="../index.html"
+       class="text-sm bg-white text-slate-700 px-4 py-2 rounded-lg border hover:bg-slate-50">
+      ← Quay lại
+    </a>
+
+    
+    <div class="relative">
+      <button id="cartToggle" class="relative text-2xl">
+        <i class="fa fa-shopping-cart"></i>
+        <span id="cartCount"
+              class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
+          0
+        </span>
+      </button>
+
+      
+      <div id="cartDropdown"
+           class="hidden absolute right-0 mt-4 w-[400px] bg-white shadow-xl rounded-xl border p-4 z-50">
+
+        <h3 class="font-bold text-lg mb-4">Giỏ hàng</h3>
+
+        <div class="max-h-[300px] overflow-y-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b">
+                <th class="text-left py-2">Tên</th>
+                <th>SL</th>
+                <th>Giá</th>
+              </tr>
+            </thead>
+            <tbody id="tblCartBody"></tbody>
+          </table>
+        </div>
+
+        <div class="mt-4 flex justify-between items-center">
+          <div class="font-semibold">
+            Tổng: <span id="cartTotal">0đ</span>
+          </div>
+
+          <button id="btnCheckout"
+                  class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
+            Thanh toán
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<main class="max-w-7xl mx-auto px-6 py-10">
+
+  
+  <section id="shop" class="mb-16">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+      <h2 class="text-4xl font-bold">Sản phẩm nổi bật</h2>
+
+      <div class="flex items-center gap-3">
+        <span class="font-semibold">Lọc theo loại:</span>
+        <select id="typeFilter" class="border border-blue-200 bg-white px-4 py-2 rounded-md">
+          <option value="all">Tất cả</option>
+          <option value="iphone">iPhone</option>
+          <option value="samsung">Samsung</option>
+        </select>
+      </div>
+    </div>
+
+   
+    <div id="userProducts"
+         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+     
+    </div>
+  </section>
+
+  
+
+</main>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.11.0/axios.min.js"></script>
+
+
+<script type="module" src="../controllers/main1.js"></script>
+
+</body>
+</html>

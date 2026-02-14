@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+
+.nav-link {
+    color: #1d365e;
+    position: relative;
+}
+
+.nav-link::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: #2a73dd;
+    transform: scaleX(0);
+    transition: 0.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+}
+
+.nav-link.active {
+    color: #2a73dd;
+}
+
+
+.section-title {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 60px;
+    color: #1d365e;
+}
+
+
+.btnPhone-blue {
+    background: linear-gradient(120deg, #60a4f4, #2a73dd);
+    padding: 14px 36px;
+    border-radius: 8px;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btnPhone-shadow {
+    background: #f5f9fe;
+    padding: 10px 22px;
+    border-radius: 6px;
+    border: none;
+    color: #2a73dd;
+    box-shadow: 2px 2px 6px #dbe6ff;
+}
+
+
+.cardPhone {
+    background: #f5f9fe;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 6px 6px 12px #e2ebfc,
+                -6px -6px 12px #fff;
+}
+
+.cardPhone img {
+    border-radius: 12px;
+}
+
+.cardPhone__title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.cardPhone__text {
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2a73dd;
+    margin-bottom: 12px;
+}

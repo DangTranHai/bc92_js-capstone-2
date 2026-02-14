@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin - Quản lý sản phẩm</title>
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-slate-100 text-slate-800">
+
+<header class="admin-header">
+  <div class="admin-header__container">
+
+    
+     <a href="../index.html"
+       class="text-sm bg-white text-slate-700 px-4 py-2 rounded-lg border hover:bg-slate-50">
+      ← Quay lại
+    </a>
+
+    <h1 class="admin-logo">Admin Panel</h1>
+    <span class="text-sm opacity-80">Quản lý sản phẩm</span>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-6 py-10">
+  <h2 class="admin-title">Danh sách sản phẩm</h2>
+
+  <div class="flex flex-col md:flex-row justify-between gap-4 mb-6">
+    <button
+      data-modal-target="default-modal"
+      data-modal-toggle="default-modal"
+      class="bg-white text-blue-500 border border-blue-500 hover:bg-blue-50 rounded-base text-sm px-4 py-2.5">
+      Thêm sản phẩm
+    </button>
+
+    <div class="relative">
+      <input type="text" placeholder="Tìm sản phẩm..." class="input-search" />
+      <i class="fa fa-search search-icon"></i>
+    </div>
+  </div>
+
+  <div id="loader" style="display: none;" class="loader"></div>
+
+  <div class="table-wrapper">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tên SP</th>
+          <th>Giá</th>
+          <th>Màn hình</th>
+          <th>Camera sau</th>
+          <th>Camera trước</th>
+          <th>Hình</th>
+          <th>Mô tả</th>
+          <th>Loại máy</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+      <tbody id="tblProduct"></tbody>
+    </table>
+  </div>
+</main>
+
+
+<div id="default-modal" tabindex="-1"
+  class="hidden fixed inset-0 z-50 flex justify-center items-center">
+
+  <div class="absolute inset-0 bg-black opacity-50"></div>
+
+  <div class="relative bg-white rounded-base shadow-lg p-6 max-w-2xl w-full z-10">
+
+    
+    <div class="flex items-center justify-between border-b pb-4">
+      <h3 class="text-lg font-medium text-heading">
+        Thêm Sản phẩm
+      </h3>
+      <button type="button"
+        data-modal-hide="default-modal"
+        class="text-sm w-9 h-9 flex justify-center items-center">
+        ✕
+      </button>
+    </div>
+
+    
+    <div class="space-y-4 py-4">
+
+      <div>
+        <input class="input w-full" placeholder="ID"
+          id="modal-product-id" readonly />
+        <p id="invalidId" class="text-red-500 text-sm mt-1"></p>
+      </div>
+
+      <div>
+        <input class="input w-full" placeholder="Tên sản phẩm"
+          id="modal-product-name" />
+        <p id="invalidName" class="text-red-500 text-sm mt-1"></p>
+      </div>
+
+      <div>
+        <input class="input w-full" placeholder="Giá"
+          id="modal-product-price" />
+        <p id="invalidPrice" class="text-red-500 text-sm mt-1"></p>
+      </div>
+
+      <div>
+        <input class="input w-full" placeholder="Màn hình"
+          id="modal-product-screen" />
+        <p id="invalidScreen" class="text-red-500 text-sm mt-1"></p>
+      </div>
+
+      <div>
+        <input class="input w-full" placeholder="Camera sau"
+          id="modal-product-backcamera" />
+        <p id="invalidBackCamera" class="text-red-500 text-sm mt-1"></p>
+      </div>
+
+      <div>
+        <input class="input w-full" placeholder="Camera trước"
+          id="modal-product-frontcamera" />
+        <p id="invalidFrontCamera" class="text-red-500 text-sm mt-1"></p>
+      </div>
+
+      <div>
+        <input class="input w-full" placeholder="Hình ảnh (url)"
+          id="modal-product-img" />
+        <p id="invalidImg" class="text-red-500 text-sm mt-1"></p>
+      </div>
+
+      <div>
+        <textarea class="input w-full" rows="3"
+          placeholder="Mô tả"
+          id="modal-product-desc"></textarea>
+        <p id="invalidDesc" class="text-red-500 text-sm mt-1"></p>
+      </div>
+
+      <div>
+        <input class="input w-full" placeholder="Loại máy (iphone/samsung)"
+          id="modal-product-type" />
+        <p id="invalidType" class="text-red-500 text-sm mt-1"></p>
+      </div>
+
+    </div>
+
+    
+    <div class="flex justify-end gap-3 border-t pt-4">
+      <button class="btn-cancel"
+        data-modal-hide="default-modal">Hủy</button>
+      <button class="btn-primary"
+        id="modal-product-save">Lưu</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- Axios -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.11.0/axios.min.js"></script>
+
+<!-- Controller -->
+<script type="module" src="../controllers/main2.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+
+</body>
+</html>
